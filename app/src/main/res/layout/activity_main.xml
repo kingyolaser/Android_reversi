@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Othello"
-        android:id="@+id/textView"
+        android:id="@+id/topTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp" />
@@ -21,8 +21,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="by T.Nogami"
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_marginTop="35dp" />
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/topTitle"
+        android:layout_alignLeft="@+id/topTitle"
+        android:layout_alignStart="@+id/topTitle" />
 </RelativeLayout>
