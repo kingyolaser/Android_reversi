@@ -20,6 +20,10 @@
             android:name=".StartingOption"
             android:label="@string/title_activity_starting_option" >
         </activity>
+        <activity
+            android:name=".BanActivity"
+            android:label="@string/title_activity_ban" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,35 +1,26 @@
 package com.example.user.othello;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.view.SurfaceView;
 
-public class StartingOption extends ActionBarActivity {
+public class BanActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starting_option);
+        setContentView(R.layout.activity_ban);
 
-        Button button = (Button)findViewById(R.id.buttonStart);
-        button.setOnClickListener(new ButtonClickListener());
-    }
-
-    class ButtonClickListener implements View.OnClickListener {
-        public void onClick(View v){
-            Intent intent = new Intent(StartingOption.this, BanActivity.class);
-            startActivity(intent);
-        }
+        //SurfaceView surfaceview = (SurfaceView)findViewById(R.id.banView);
+        //surfaceview.
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_starting_option, menu);
+        getMenuInflater().inflate(R.menu.menu_ban, menu);
         return true;
     }
 
