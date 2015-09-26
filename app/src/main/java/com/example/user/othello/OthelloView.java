@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,17 +27,26 @@ public class OthelloView extends View {
         setFocusable(true);
     }
 
-
+    Paint paint = new Paint();
     @Override
     protected void onDraw(Canvas canvas){
-        Paint paint = new Paint();
-        paint.setColor(Color.YELLOW);
+        paint.setColor(Color.BLACK);
         paint.setStrokeWidth(10);
         paint.setAntiAlias(true);
-        canvas.drawCircle(100, 100, 50, paint);
+
+        float ban_width = getWidth()-20;
+        final float offset=10;
+        for( int i=0; i<=8; i++){
+            canvas.drawLine(offset,offset+i*ban_width/8,
+                    offset+ban_width, offset+i*ban_width/8, paint);
+        }
+        for( int i=0; i<=8; i++){
+            canvas.drawLine(offset+i*ban_width/8,offset,
+                    offset+i*ban_width/8, offset+ban_width, paint);
+        }
     }
 
-    public boolean onTouchEvent(MotionEvent e){
+    public boolean onTouchEvent(@NonNull MotionEvent e){
         switch(e.getAction()){
             case MotionEvent.ACTION_DOWN:
                 //x=(int)e.getX();
