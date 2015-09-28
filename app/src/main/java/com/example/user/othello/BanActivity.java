@@ -13,8 +13,9 @@ public class BanActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ban);
 
-        //SurfaceView surfaceview = (SurfaceView)findViewById(R.id.banView);
-        //surfaceview.
+        OthelloView oview = (OthelloView)findViewById(R.id.banView);
+        oview.setBan(Ban.getInstance());
+
     }
 
     @Override

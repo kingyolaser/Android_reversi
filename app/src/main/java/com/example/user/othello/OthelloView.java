@@ -13,6 +13,7 @@ import android.view.View;
  * Created by T.Nogami on 2015/09/26.
  */
 public class OthelloView extends View {
+    Ban ban = null;
     public OthelloView(Context context){
         super(context);
         setFocusable(true);
@@ -44,6 +45,28 @@ public class OthelloView extends View {
             canvas.drawLine(offset+i*ban_width/8,offset,
                     offset+i*ban_width/8, offset+ban_width, paint);
         }
+
+        if( ban == null){
+            return;
+        }
+
+        for(int x=1; x<=8; x++){
+            for( int y=1; y<=8; y++){
+                switch(ban.ban[x][y]){
+                    case Ban.WHITE:
+                        paint.setColor(Color.WHITE);
+                        break;
+                    case Ban.BLACK:
+                        paint.setColor(Color.BLACK);
+                        break;
+                    default:
+                        continue;
+                }
+                canvas.drawCircle( offset+(x-1)*ban_width/8+ ban_width/16,
+                        offset+(y-1)*ban_width/8 + ban_width/16,
+                        ban_width/8*0.4f, paint);
+            }
+        }
     }
 
     public boolean onTouchEvent(@NonNull MotionEvent e){
@@ -63,6 +86,10 @@ public class OthelloView extends View {
                 break;
         }
         return true;
+    }
+
+    public void setBan(Ban b){
+        ban = b;
     }
 
 }

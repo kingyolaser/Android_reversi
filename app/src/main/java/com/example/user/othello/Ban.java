@@ -38,6 +38,10 @@ public class Ban {
             ban[10-1][i] = WALL;
         }
         teban = BLACK;
+        ban[4][4] = WHITE;
+        ban[5][5] = WHITE;
+        ban[4][5] = BLACK;
+        ban[5][4] = BLACK;
     }
 
     public boolean put(int x, int y){
