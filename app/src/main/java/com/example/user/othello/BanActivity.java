@@ -14,8 +14,10 @@ public class BanActivity extends ActionBarActivity {
         setContentView(R.layout.activity_ban);
 
         OthelloView oview = (OthelloView)findViewById(R.id.banView);
-        oview.setBan(Ban.getInstance());
+        Ban b = Ban.getInstance();
+        oview.setBan(b);
 
+        b.put(6,5);
     }
 
     @Override

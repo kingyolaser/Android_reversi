@@ -44,11 +44,38 @@ public class Ban {
         ban[5][4] = BLACK;
     }
 
+    public int getAite(int me){
+        return BLACK+WHITE - me;
+    }
+
     public boolean put(int x, int y){
         if( !(1<=x && x<=WIDTH)){return false;}
         if( !(1<=y && y<=WIDTH)){return false;}
         if( ban[x][y] != EMPTY){return false;}
 
+        int aite = getAite(teban);
+        boolean flipflg = false;
+        for( int dx=-1; dx<=1; dx++){
+            for( int dy=-1; dy<=1; dy++){
+                for(int d=1;;d++){
+                    if(ban[x+dx*d][y+dy*d]==aite){
+                        continue;
+                    }else if(ban[x+dx*d][y+dy*d]==teban && d>1){
+                        //flip!
+                        for(int i=1; i<d; i++){
+                            ban[x+dx*i][y+dy*i] = teban;
+                            flipflg = true;
+                        }
+                        break;
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }
+        if( flipflg ){
+            ban[x][y] = teban;
+        }
         return true;
     }
 }
