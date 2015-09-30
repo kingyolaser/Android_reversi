@@ -75,6 +75,7 @@ public class Ban {
         }
         if( flipflg ){
             ban[x][y] = teban;
+            teban = BLACK+WHITE - teban;
         }
         return true;
     }

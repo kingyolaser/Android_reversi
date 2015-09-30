@@ -14,6 +14,8 @@ import android.view.View;
  */
 public class OthelloView extends View {
     Ban ban = null;
+    static final float offset=10;
+
     public OthelloView(Context context){
         super(context);
         setFocusable(true);
@@ -36,7 +38,6 @@ public class OthelloView extends View {
         paint.setAntiAlias(true);
 
         float ban_width = getWidth()-20;
-        final float offset=10;
         for( int i=0; i<=8; i++){
             canvas.drawLine(offset,offset+i*ban_width/8,
                     offset+ban_width, offset+i*ban_width/8, paint);
@@ -70,10 +71,16 @@ public class OthelloView extends View {
     }
 
     public boolean onTouchEvent(@NonNull MotionEvent e){
+        int x,y, m,n;
+        float ban_width = getWidth()-20;
+
         switch(e.getAction()){
             case MotionEvent.ACTION_DOWN:
-                //x=(int)e.getX();
-                //y=(int)e.getY();
+                x=(int)e.getX();
+                y=(int)e.getY();
+                m= (int)((x-offset) / (ban_width/8) +1);
+                n= (int)((y-offset) / (ban_width/8) +1);
+                ban.put(m,n);
                 invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
